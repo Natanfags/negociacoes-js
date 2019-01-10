@@ -11,8 +11,9 @@ class ProxyFactory {
                     return function() {
 
                         console.log(`interceptando ${prop}`);
-                        Reflect.apply(target[prop], target, arguments);
-                        return acao(target);
+                        let retorno = Reflect.apply(target[prop], target, arguments);
+                        acao(target);
+                        return retorno;
                     }
                 }
                 
